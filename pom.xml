@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- THAY ĐỔI 'com.yourname' THÀNH PACKAGE CỦA BẠN -->
+    <!-- NHỚ SỬA 'com.yourname' THÀNH PACKAGE CỦA BẠN -->
     <groupId>com.yourname.mmoprodorp</groupId>
     <artifactId>MMOProDrop</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -20,7 +20,6 @@
     <build>
         <defaultGoal>clean package</defaultGoal>
         <plugins>
-            <!-- Plugin để biên dịch code Java, đã cập nhật phiên bản -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -30,7 +29,6 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <!-- Plugin quan trọng để đóng gói đúng cách cho Spigot/Paper/Purpur -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -53,7 +51,6 @@
         </resources>
     </build>
 
-    <!-- Kho chứa các thư viện (API) -->
     <repositories>
         <repository>
             <id>purpurmc-repo</id>
@@ -63,23 +60,20 @@
             <id>papermc-repo</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
+        <!-- SỬA LỖI Ở ĐÂY: Đã cập nhật URL của kho MythicCraft -->
         <repository>
-            <id>mythiccraft-repo</id>
-            <url>https://nexus.mythiccraft.io/repository/mythiccraft/</url>
+            <id>mythic-repository</id>
+            <url>https://mvn.mythiccraft.io/repository/mythic/</url>
         </repository>
     </repositories>
 
-    <!-- Các thư viện mà plugin của bạn phụ thuộc -->
     <dependencies>
-        <!-- Purpur API cho Minecraft 1.21 -->
         <dependency>
             <groupId>org.purpurmc.purpur</groupId>
             <artifactId>purpur-api</artifactId>
             <version>1.21-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- MMOItems API -->
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MMOItems</artifactId>

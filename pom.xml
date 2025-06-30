@@ -1,64 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project ...>
-    <!-- ... các phần khác giữ nguyên ... -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- THAY ĐỔI 'com.yourname' THÀNH PACKAGE CỦA BẠN -->
+    <groupId>com.yourname.mmoprodorp</groupId>
+    <artifactId>MMOProDrop</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <name>MMOProDrop</name>
 
     <properties>
-        <java.version>17</java.version> <!-- Java 17 là bắt buộc cho các phiên bản Minecraft mới -->
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
         <defaultGoal>clean package</defaultGoal>
         <plugins>
+            <!-- Plugin để biên dịch code Java, đã cập nhật phiên bản -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <!-- ... plugin shade-plugin giữ nguyên ... -->
+            <!-- Plugin quan trọng để đóng gói đúng cách cho Spigot/Paper/Purpur -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-        <!-- ... resources giữ nguyên ... -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
+    <!-- Kho chứa các thư viện (API) -->
     <repositories>
-        <!-- Purpur API -->
         <repository>
             <id>purpurmc-repo</id>
             <url>https://repo.purpurmc.org/snapshots</url>
         </repository>
-        <!-- Paper API (dự phòng) -->
         <repository>
             <id>papermc-repo</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
-        <!-- MMOItems API -->
         <repository>
             <id>mythiccraft-repo</id>
             <url>https://nexus.mythiccraft.io/repository/mythiccraft/</url>
         </repository>
     </repositories>
 
+    <!-- Các thư viện mà plugin của bạn phụ thuộc -->
     <dependencies>
-        <!-- Thay đổi dependency chính thành Purpur API -->
+        <!-- Purpur API cho Minecraft 1.21 -->
         <dependency>
             <groupId>org.purpurmc.purpur</groupId>
             <artifactId>purpur-api</artifactId>
-            <!-- Sử dụng phiên bản API cho 1.21 -->
             <version>1.21-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        
-        <!-- MMOItems API (nên kiểm tra phiên bản mới nhất tương thích với 1.21) -->
+
+        <!-- MMOItems API -->
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>MMOItems</artifactId>
-            <!-- Có thể bạn sẽ cần cập nhật phiên bản này khi MMOItems ra bản cho 1.21 -->
-            <version>6.10.1</version> 
+            <version>6.10.1</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

@@ -1,7 +1,8 @@
 name: MMOProDrop
 version: ${project.version}
 main: com.yourname.mmoprodro.MMOProDrop
-api-version: 1.18
+# Cập nhật api-version lên 1.21
+api-version: '1.21'
 depend: [MMOItems]
 author: YourName
 description: Giải pháp drop chuyên nghiệp, chống farm và hỗ trợ điều kiện cho MMOItems.

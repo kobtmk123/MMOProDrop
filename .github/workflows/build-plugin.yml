@@ -1,0 +1,35 @@
+name: Build MMOProDrop Plugin
+
+on:
+  push:
+    branches: [ "main", "master" ] # Chạy khi push lên nhánh main hoặc master
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Bước 1: Lấy mã nguồn từ repo của bạn
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Bước 2: Cài đặt môi trường Java (JDK 17)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      # Bước 3: Biên dịch và đóng gói bằng Maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      # Bước 4: Tải lên file .jar đã biên dịch thành một "Artifact"
+      # Bạn có thể tải file này về từ tab "Actions" trên repo GitHub của bạn
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MMOProDrop-Plugin
+          path: target/*.jar

@@ -1,0 +1,15 @@
+# Tiền tố sẽ xuất hiện trước mỗi thông báo của plugin.
+# Bạn có thể dùng mã màu của Minecraft.
+tien_to: '&8[&eMMOProDrop&8] &r'
+
+# Thông báo liên quan đến lệnh
+lenh:
+  reload_thanh_cong: '&aĐã tải lại cấu hình và dữ liệu drop thành công!'
+  khong_co_quyen: '&cBạn không có quyền để sử dụng lệnh này.'
+  lenh_khong_ton_tai: '&cKhông rõ lệnh. Sử dụng &e/mmoprodro reload &cđể tải lại plugin.'
+
+# Thông báo lỗi hoặc cảnh báo
+loi:
+  can_mmoitems: '&cKhông tìm thấy plugin MMOItems! MMOProDrop sẽ không hoạt động.'
+  khong_tim_thay_drops_yml: '&c[CẢNH BÁO] Không tìm thấy file drops.yml của MMOItems. Sẽ không có drop từ block.'
+  loi_doc_drop: '&c[LỖI] Có lỗi khi đọc cấu hình drop cho block ''%block%''. Vui lòng kiểm tra lại drops.yml!'

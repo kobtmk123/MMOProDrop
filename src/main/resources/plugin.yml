@@ -1,0 +1,13 @@
+name: MMOProDrop
+version: ${project.version}
+main: com.yourname.mmoprodro.MMOProDrop
+api-version: 1.18
+depend: [MMOItems]
+author: YourName
+description: Giải pháp drop chuyên nghiệp, chống farm và hỗ trợ điều kiện cho MMOItems.
+commands:
+  mmoprodro:
+    description: Lệnh chính của MMOProDrop.
+    usage: /<command> [reload]
+    aliases: [mpro, mmopro]
+    permission: mmoprodro.admin

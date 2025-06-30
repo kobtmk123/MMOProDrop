@@ -1,0 +1,27 @@
+############################################################
+#                                                          #
+#                    Cấu hình MMOProDrop                    #                       Hoàng Nghĩa dz
+#         Plugin chống farm và quản lý drop nâng cao        #
+#                                                          #
+############################################################
+
+# Cài đặt chung cho plugin
+cai_dat:
+  # === TÍNH NĂNG CHỐNG FARM ===
+  # Bật/tắt tính năng cốt lõi: ngăn chặn farm từ block do người chơi đặt.
+  #   - true: Chỉ những block tự nhiên (do thế giới tạo ra) mới có thể rơi ra MMOItems.
+  #   - false: Tất cả block (cả tự nhiên và do người chơi đặt) đều có thể rơi ra MMOItems.
+  # Nên để 'true' để đảm bảo cân bằng game.
+  chong_farm_tu_block_dat: true
+
+  # === TÍNH NĂNG DROP CỦA VẬT PHẨM GỐC (VANILLA) ===
+  # Ngăn chặn vật phẩm gốc (vanilla) rơi ra khi một vật phẩm MMOItems đã rơi ra thành công?
+  # Ví dụ với Quặng Kim Cương (Diamond Ore):
+  #   - true: Nếu người chơi đào và rơi ra 'Đá Quý Sức Mạnh' (MMOItem), thì sẽ KHÔNG rơi ra
+  #           viên kim cương gốc (vanilla diamond) nữa. Giúp drop gọn gàng hơn.
+  #   - false: Người chơi sẽ nhận được CẢ 'Đá Quý Sức Mạnh' VÀ viên kim cương gốc.
+  ngan_drop_vanilla_khi_mmo_thanh_cong: true
+
+# Thông báo khi có phiên bản mới
+# Bật để plugin kiểm tra và thông báo cho admin (OP) trong game nếu có phiên bản mới.
+kiem_tra_cap_nhat: true
